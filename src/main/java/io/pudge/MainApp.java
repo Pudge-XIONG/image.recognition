@@ -10,8 +10,6 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
  * A Camel Application
@@ -22,8 +20,7 @@ public class MainApp {
      * A main() so we can easily run these routing rules in our IDE
      */
     public static void main(String... args) throws Exception {
-        int i = 7;
-        for(i = 7; i > 0; i --){
+        for(int i = 7; i > 0; i --){
             doOCR(i + ".jpg");
         }
     }
@@ -37,7 +34,7 @@ public class MainApp {
             BufferedImage textImage = ImageIO.read(imageFile);
             int x = 240;
             int y = 25;
-            int scale = 3;
+            int scale = 6;
             textImage = ImageHelper.getSubImage(textImage, 0, 0, x, y);
             // 这里对图片黑白处理,增强识别率.这里先通过截图,截取图片中需要识别的部分
             textImage = ImageHelper.convertImageToGrayscale(textImage);
